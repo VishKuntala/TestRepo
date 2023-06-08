@@ -1,0 +1,11 @@
+{
+  "bindings": [
+    {
+      "name": "myBlob",
+      "type": "blobTrigger",
+      "direction": "in",
+      "path": "wst-user-uploads/{name}.csv",
+      "connection": "AZURE_STORAGE_CONNECTION_STRING"
+    }
+  ]
+}
