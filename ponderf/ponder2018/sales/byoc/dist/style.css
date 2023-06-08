@@ -1,0 +1,18 @@
+img.logo  {
+    height: auto;
+    width: 150px !important;
+}
+
+#map {
+    width: auto;
+    height: 400px;
+}
+
+.ponder-map {
+    width: auto;
+    height: 400px;
+}
+
+table.dataTable tbody tr.selected {
+    background-color: #b0bed9;
+}

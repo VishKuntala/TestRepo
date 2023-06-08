@@ -1,0 +1,1 @@
+(self.webpackChunkleafletapp=self.webpackChunkleafletapp||[]).push([[518],{4580:(a,e,l)=>{"use strict";l.r(e),l.d(e,{default:()=>n});const n={Unknown:{name:"Unknown",color:"#a9a9a9"},No:{name:"No",color:"#e6b800"},Partial:{name:"Partial",color:"#00cc00"},Yes:{name:"Yes",color:"#003300"}}}}]);

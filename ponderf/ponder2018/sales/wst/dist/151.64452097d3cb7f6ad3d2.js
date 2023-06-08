@@ -1,0 +1,1 @@
+(self.webpackChunkleafletapp=self.webpackChunkleafletapp||[]).push([[151],{7151:(e,a,i)=>{"use strict";i.r(a),i.d(a,{html:()=>p});var p=function(e){return e.adminUser,e.id,'<div class="center aligned">\n  <input data-publish-attr="compareSvid" type="checkbox" name="chkCompareSvid" id="chkCompareSvid">\n</div>'}}}]);

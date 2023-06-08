@@ -1,0 +1,39 @@
+﻿.heatmap-filters button.ui.button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid;
+    border-radius: 2px;
+    position: relative;
+    padding: 0.5rem 1rem;
+    box-shadow: 1px 1px 6px 0px #1D232914 !important;
+}
+
+.heatmap-filters button.ui.button.active {
+    outline: 2px solid black;
+}
+
+.heatmap-filters button.ui.button::after {
+    content: " ";
+    position: absolute;
+    display: block;
+    background: white;
+    top:0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 2px;
+    z-index: -1;
+}
+
+.heatmap-filters button.ui.button:not(:last-child) {
+    margin-right: .5rem;
+}
+
+.filter-btn--heading {
+    margin-bottom: .25rem;
+}
+
+.filter-btn--sub {
+    font-size: smaller;
+}

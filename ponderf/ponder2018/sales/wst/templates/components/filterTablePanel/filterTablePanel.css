@@ -1,0 +1,24 @@
+nav .filterpanel-nav-items {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+}
+
+.filterpanel-nav-items a {
+    color: white;
+    margin-right: 1.5rem;
+}
+
+.filterpanel-nav-items a:active, .nav-items a:hover {
+     text-decoration: underline;
+}
+
+.filterpanel-nav-items .left-links {
+    display: flex;
+    align-items: center;
+}
+
+.filterpanel-title {
+    font-weight: bold;
+    text-align: center;
+}

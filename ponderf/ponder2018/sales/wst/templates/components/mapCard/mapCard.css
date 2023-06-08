@@ -1,0 +1,47 @@
+
+.ponder-ui-layer-information {
+    bottom: 1rem;
+    left: 1rem;
+    z-index: 2000;
+}
+
+    .ponder-ui-layer-information .ui.vertical.menu {
+        width: 25rem;
+        margin-bottom: 0;
+    }
+
+    .ponder-ui-layer-information .title {
+        display: flex !important;
+        justify-content: space-between;
+    }
+
+        .ponder-ui-layer-information .title .icon {
+            transition: all .25s ease-in-out;
+        }
+
+        .ponder-ui-layer-information .title h4 {
+            margin: 0;
+        }
+
+    .ponder-ui-layer-information .content {
+        padding-top: 1rem !important;
+    }
+
+        .ponder-ui-layer-information .content > div {
+            display: flex;
+            margin-bottom: 1rem;
+        }
+
+            .ponder-ui-layer-information .content > div .ponder-label {
+                color: #888;
+            }
+
+            .ponder-ui-layer-information .content > div > span {
+                flex: 1;
+            }
+
+.hideCard {
+    visibility: hidden;
+    position: absolute;
+    left: 9999px;
+}

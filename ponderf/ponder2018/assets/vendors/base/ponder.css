@@ -1,0 +1,312 @@
+﻿@charset "UTF-8";
+.box1 {
+    width: 18px;
+    height: 18px;
+}
+
+.box2 {
+    height: 2px;
+}
+
+.box3 {
+    height: 5px;
+}
+
+.doughnut {
+    border: 9px;
+    border-radius: 18px;
+    height: 18px;
+    width: 18px;
+}
+
+.backdarkgreen {
+    background: #003300;
+    display: inline-block;
+}
+
+.backmedgreen {
+    background: #008000;
+    display: inline-block;
+}
+
+.backlightgreen {
+    background: #00cc00;
+    display: inline-block;
+}
+
+.backverydarkblue {
+    background: #00008b;
+    display: inline-block;
+}
+
+.backdarkblue {
+    background: #0066cc;
+    display: inline-block;
+}
+
+.backmedblue {
+    background: #4da6ff;
+    display: inline-block;
+}
+
+.backlightblue {
+    background: #87cefa;
+    display: inline-block;
+}
+
+.backlightred {
+    background: #ff3333;
+    display: inline-block;
+}
+
+.cata {
+    font-size: 12px;
+    display: inline-block;
+}
+
+.titleback {
+    background: #87cefa;
+}
+
+#donutrowlegend_NSBModal {
+    text-align: left;
+}
+
+#donutrowlegend {
+    text-align: left;
+}
+
+#donutrowlegend_MCA {
+    text-align: left;
+}
+
+#donutrowlegend_CRAN {
+    text-align: left;
+}
+
+#donutrowlegend_LTE1C {
+    text-align: left;
+}
+
+#donutrowlegend_IB {
+    text-align: left;
+}
+
+#donutrowlegend_BWESW {
+    text-align: left;
+}
+
+#buttonrowcenter {
+    text-align: center;
+}
+
+.tabulator {
+    position: relative;
+    border: 1px solid #999;
+    background-color: #888;
+    font-size: 13px;
+    text-align: left;
+    overflow: hidden;
+    -ms-transform: translatez(0);
+    transform: translatez(0);
+}
+
+    .tabulator .tabulator-header .tabulator-col {
+        display: inline-block;
+        position: relative;
+        box-sizing: border-box;
+        border-right: 1px solid #aaa;
+        background: #87cefa;
+        text-align: center;
+        vertical-align: bottom;
+        overflow: hidden;
+    }
+
+.accordheader { /*header of 1st demo*/
+    cursor: hand;
+    cursor: pointer;
+    padding: 2px 5px;
+    border: 1px solid gray;
+    background: #E1E1E1;
+}
+
+.accordcontents {
+    padding-top: 2px;
+    padding-bottom: 15px;
+}
+
+.openclass { /*class added to contents of 1st demo when they are open*/
+    background: #87cefa;
+}
+
+.openlanguage { /*class added to contents of 2nd demo when they are open*/
+    color: green;
+}
+
+.closedlanguage { /*class added to contents of 2nd demo when they are closed*/
+    color: red;
+}
+
+.haccordion {
+    -webkit-box-shadow: 0px 75px 35px -55px rgba(10, 30, 65, 0.6);
+    -moz-box-shadow: 0px 75px 35px -55px rgba(10, 30, 65, 0.6);
+    box-shadow: 0px 75px 35px -55px rgba(10, 30, 65, 0.6);
+    font-family: Arial, Helvetica, sans-serif;
+    border-color: #505050;
+    border-style: solid;
+    border-width: 0px;
+    border-radius: 12px;
+    margin: 0 auto;
+    height: 550px;
+    width: 1490px; /*1483px,1556px overall width  */
+}
+
+    .haccordion > ul > li,
+    .haccordion-title,
+    .haccordion-content,
+    .haccordion-separator {
+        float: left;
+    }
+
+    .haccordion > ul > li {
+        background-color: #d3d3d3; /*color behind everything*/
+        margin-right: -1412px;
+        margin-bottom: -0px;
+    }
+
+.haccordion-select:checked ~ .haccordion-separator {
+    margin-right: 1320px; /*move tab over px amount*/
+    margin-bottom: 0px;
+}
+
+.haccordion-title,
+.haccordion-select {
+    background-color: #606060; /*color of unselected tab*/
+    color: #ffffff;
+    width: 40px;
+    height: 550px;
+    font-size: 24px; /*font size of tabs*/
+}
+
+    .haccordion-title span {
+        margin-bottom: 20px;
+        margin-left: 20px;
+    }
+
+    .haccordion-select:hover ~ .haccordion-title,
+    .haccordion-select:checked ~ .haccordion-title {
+        background-color: #87cefa; /*Background color of highlighted tab*/
+    }
+
+    .haccordion-title span {
+        transform: rotate(-90deg);
+        -o-transform: rotate(-90deg);
+        -moz-transform: rotate(-90deg);
+        -webkit-transform: rotate(-90deg);
+        -ms-writing-mode: lr-bt;
+        filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+        margin-left: 0px;
+        line-height: 40px;
+    }
+
+.haccordion-content {
+    background-color: #d3d3d3; /*#3e3e3e*/
+    color: #f5f2f0;
+    height: 550px;
+    width: 1412px;
+    padding: 15px;
+}
+
+.haccordion-title,
+.haccordion-select:checked ~ .haccordion-content {
+    margin-right: 2px;
+    margin-bottom: 2px;
+}
+
+/* Do not change following properties, they aren't 
+                generated automatically and are common for each slider. */
+.haccordion {
+    overflow: hidden;
+}
+
+    .haccordion > ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        width: 100%;
+    }
+
+        .haccordion > ul > li,
+        .haccordion-title {
+            position: relative;
+        }
+
+.haccordion-select {
+    cursor: pointer;
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    margin: 0;
+    z-index: 1;
+}
+
+.haccordion-title span {
+    display: block;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.haccordion-content {
+    position: relative;
+    overflow: auto;
+}
+
+.haccordion-separator {
+    transition: margin 0.3s ease 0.1s;
+    -o-transition: margin 0.3s ease 0.1s;
+    -moz-transition: margin 0.3s ease 0.1s;
+    -webkit-transition: margin 0.3s ease 0.1s;
+}
+
+a:link {
+    color: #00008b;
+    background-color: transparent;
+    text-decoration: none;
+}
+
+a:hover {
+    color: royalblue;
+    background-color: transparent;
+    text-decoration: underline;
+}
+
+a.menu_show {
+    cursor: pointer;
+}
+
+a.menu_hide {
+    cursor: pointer;
+}
+
+.right {
+    float: right;
+}
+
+.left {
+    float: left;
+}
+
+.highlightGreen {
+    background-color: #9fdf9f !important;
+}
+
+.highlightRed {
+    background-color: #ff9999 !important;
+}
+
+.highlightYellow {
+    background-color: #ffff66 !important;
+}

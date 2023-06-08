@@ -1,0 +1,31 @@
+img.logo {
+    height: auto;
+    width: 150px !important;
+}
+
+#map {
+    width: auto;
+    height: 400px;
+}
+
+.ponder-map {
+    width: auto;
+    height: 400px;
+}
+
+
+.ui.steps .step {
+    background: #B6D0E2 !important;
+}
+
+.ui.steps .step:after {
+    background: #B6D0E2 !important;
+}
+
+.ui.steps .step.active {
+    background: #FFFFFF !important;
+}
+
+    .ui.steps .step.active:after {
+        background: #FFFFFF !important;
+    }

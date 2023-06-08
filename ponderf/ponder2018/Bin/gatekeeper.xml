@@ -1,0 +1,65 @@
+﻿<?xml version="1.0"?>
+<doc>
+<assembly>
+<name>
+gatekeeper
+</name>
+</assembly>
+<members>
+<member name="M:CSP.GateKeeper.decrypt(System.String,System.String)">
+	<summary>
+ The decrypt method accepts an ATTESSec cookie string in raw (undecrypted) format,
+ a validation type, and an optional path to a directory for trace output; and
+ returns the validated and decrypted attESSec cookie string.
+ </summary>
+	<param name="cookieValue">the raw attESSec cookie string, before decryption</param>
+	<param name="validationType">a comma separated list of the CSP cookie types 
+ (or a single type) that you wish to allow to access your application.</param>
+	<returns>Returns the decrypted and verified attESSec cookie string or an empty string.
+ </returns>
+</member><member name="M:CSP.GateKeeper.decrypt(System.String,System.String,System.String,System.Int32)">
+	<summary>
+ The decrypt method accepts an ATTESSec cookie string in raw (undecrypted) format,
+ a validation type, and an optional path to a directory for trace output; and
+ returns the validated and decrypted attESSec cookie string.
+ </summary>
+	<param name="cookieValue">the raw attESSec cookie string, before decryption</param>
+	<param name="validationType">a comma separated list of the CSP cookie types 
+ (or a single type) that you wish to allow to access your application.</param>
+	<param name="debugDir">(OPTIONAL) full path to the directory on your server where 
+ you would like a trace log to be created.</param>
+	<param name="tsAheadLimit">(OPTIONAL) an integer representing minutes in the range of 10 to 60, that specifies when the secure CSP cookie is not considered a short term cookie by this application. </param>
+	<returns>Returns the decrypted and verified attESSec cookie string or an empty string. 
+ 
+ An empty string is returned in the following cases: 
+ 1) The date stamp within the cookie string is in the past
+ The date stamp is set to be 13 hours from the time of last 
+ login, giving the cookie a 13 hour lifespan. 
+ The date stamp comparison is done against the application 
+ server system time, so if the system time is significantly 
+ skewed, this could cause problems with cookie lifetime. 
+ 2) The cookie string is contaminated. The cookie may have been truncated 
+ or tampered with. 
+ 3) The validationEnv does not match with the cookie The cookie may have 
+ been created in CSP webtest, and your system is expecting a CSP 
+ production cookie. Or the cookie may have been created for a 
+ VendorID, yet your site only wants to allow ATTUIDs. 
+ In both of these cases, the empty string is a flag that 
+ signals that the user is not authorized to use your application.</returns>
+	<remarks>See http://csp.att.com/hrpin/ESAuth_UGuide.doc </remarks>
+</member><member name="P:CSP.My.Resources.Resources.ResourceManager">
+	<summary>
+  Returns the cached ResourceManager instance used by this class.
+</summary>
+</member><member name="P:CSP.My.Resources.Resources.Culture">
+	<summary>
+  Overrides the current thread's CurrentUICulture property for all
+  resource lookups using this strongly typed resource class.
+</summary>
+</member><member name="T:CSP.My.Resources.Resources">
+	<summary>
+  A strongly-typed resource class, for looking up localized strings, etc.
+</summary>
+</member>
+</members>
+</doc>

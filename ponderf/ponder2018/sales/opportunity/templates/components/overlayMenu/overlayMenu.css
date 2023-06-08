@@ -1,0 +1,16 @@
+.ponder-overlay-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+.overlay-menu {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    z-index: 2;
+}
+
+.loading-map {
+    position: absolute;
+    left: 30rem;
+}

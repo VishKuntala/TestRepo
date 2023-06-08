@@ -1,0 +1,4 @@
+﻿:root {
+    --header-height: 113px;
+    --body-height: calc(100vh - var(--header-height));
+}

@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width">
+	<title> Phone Decision Tool </title>
+	<link rel="stylesheet" href="../../Treant.css">
+	<link rel="stylesheet" href="phone-decision-tree.css">
+
+  <link rel="stylesheet" href="../../vendor/perfect-scrollbar/perfect-scrollbar.css">
+
+  <style>
+
+  .restartbtn {
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #111;
+    color: white;
+    padding: 10px 15px;
+    margin-right: 16px;
+    border: none;
+  }
+
+
+  #main {
+    transition: margin-left .5s;
+    padding: 16px;
+    text-align: center;
+
+
+  }
+
+    table {
+      width:80%;
+    }
+    table.center {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    th, td {
+      padding: 15px;
+      text-align: left;
+    }
+    tr:nth-child(odd) {
+      background-color: #eee;
+    }
+    tr:nth-child(even) {
+     background-color: #fff;
+    }
+    </style>
+    <div id="main">
+    <h1>Phone Decision Tool</h1>
+    <button class="restartbtn" id="reset" onclick="reset()" style="float: right">Reset</button>
+    </div>
+
+</head>
+<body>
+
+  <script src="../../vendor/jquery.easing.js"></script>
+  <script src="../../vendor/jquery.min.js"></script>
+  <script src="../../vendor/perfect-scrollbar/jquery.mousewheel.js"></script>
+  <script src="../../vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+	<script src="../../vendor/raphael.js"></script>
+	<script src="../../Treant.js"></script>
+	<script src="phone-decision-tree.js"></script>
+  <p id="instructions">Welcome to the Phone Decision Tool! This site is an interactive decision tree to help you choose a 5-way carrier aggregation
+    capable phone for a customer. Click on any green-highlighted block to progress
+    further through the tree. White blocks can be clicked on to compress blocks below it.
+    When you reach a blue decision box, click on it to reveal
+    more detailed features of the phone below. When you're done and want to use the tool again,
+    click the Restart button in the top right corner to reset the tool.
+  </p>
+  <div class="chart" id="DecisionTree" class="center">
+  </div>
+  <h3 id="phoneM" style="text-align:left"></h3>
+  <h2 id="phoneName" style="text-align:left"></h2>
+  <img src="./phonePhotos/iPhone11.jpg" style="display:none" id="phonePic" width="300" height=auto alt="" />
+  <table id="phoneFeatures" class="center">
+    <tr>
+      <td>Internal Memory Storage</td> <td></td>
+    </tr>
+    <tr>
+      <td>Processor Chipset</td><td></td>
+    </tr>
+    <tr>
+      <td>Battery Capacity(mAh)/Video Playback (hours)</td><td></td>
+    </tr>
+    <tr>
+      <td>Display Type</td><td></td>
+    </tr>
+    <tr>
+      <td>Front Camera</td><td></td>
+    </tr>
+    <tr>
+      <td>Rear Camera</td><td></td>
+    </tr>
+    <tr>
+      <td>4G/LTE/5Ge Support </td><td></td>
+    </tr>
+    <tr>
+      <td>5G Support</td><td></td>
+    </tr>
+    <tr>
+      <td>5G Plus Support</td><td></td>
+    </tr>
+    <tr>
+      <td>WiFi Calling</td><td></td>
+    </tr>
+    <tr>
+      <td>WiFi 6 Support</td><td></td>
+    </tr>
+    <tr>
+      <td>SIM Type</td><td></td>
+    </tr>
+    <tr>
+      <td>Carrier Aggregation</td><td></td>
+    </tr>
+    <tr>
+      <td>FirstNet Support</td><td></td>
+    </tr>
+  </table>
+  <script>
+    var my_chart = new Treant(simple_chart_config);
+    var tree = document.getElementById("DecisionTree");
+    tree.style.display = "block";
+    var phoneTable = document.getElementById("phoneFeatures");
+    phoneTable.style.display = "none";
+    document.getElementById("instructions").style.display= "block";
+    $('body').on('click', '.Treant .node', function() {
+        if ($(this).find(".node-name").text() == "iPhone SE 2020"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/iPhoneSE2020.jpg";
+          document.getElementById("phoneName").innerHTML = "iPhone SE 2020";
+          document.getElementById("phoneM").innerHTML = "Apple"
+          phoneTable.style.display = "block";
+          phoneTable.rows[0].cells[1].innerHTML = "64 GB/ 128 GB/ 256 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "A13";
+          phoneTable.rows[2].cells[1].innerHTML = "13 hrs";
+          phoneTable.rows[3].cells[1].innerHTML = "4.7\" LCD (1334 x 750 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "12MP (Wide/Dual Flash) 4K Ultra HD (Standard)";
+          phoneTable.rows[5].cells[1].innerHTML = "7MP (HDR) 1080p HD";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "Yes";
+          phoneTable.rows[8].cells[1].innerHTML = "No";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "Yes";
+          phoneTable.rows[11].cells[1].innerHTML = "Dual SIM (eSIM + Nano SIM)";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "iPhone 11"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/iPhone11.jpg";
+          document.getElementById("phoneName").innerHTML = "iPhone 11";
+          document.getElementById("phoneM").innerHTML = "Apple"
+          phoneTable.style.visibility = "visible";
+          phoneTable.rows[0].cells[1].innerHTML = "64 GB/ 128 GB/ 256 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "A13";
+          phoneTable.rows[2].cells[1].innerHTML = "17 hrs";
+          phoneTable.rows[3].cells[1].innerHTML = "6.1\" LCD (1792 x 828 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "12MP (Wide/Quad Flash) 4K Ultra HD (Advanced)";
+          phoneTable.rows[5].cells[1].innerHTML = "12MP (HDR Wide) 4K Ultra HD";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "Yes";
+          phoneTable.rows[8].cells[1].innerHTML = "No";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "Yes";
+          phoneTable.rows[11].cells[1].innerHTML = "Dual SIM (eSIM + Nano SIM)";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "iPhone 11 Pro"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/iPhone11Pro.jpg";
+          document.getElementById("phoneName").innerHTML = "iPhone 11 Pro";
+          document.getElementById("phoneM").innerHTML = "Apple"
+          phoneTable.style.visibility = "visible";
+          phoneTable.rows[0].cells[1].innerHTML = "64 GB/ 256 GB/ 512 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "A13";
+          phoneTable.rows[2].cells[1].innerHTML = "18 hrs";
+          phoneTable.rows[3].cells[1].innerHTML = "5.8\" OLED (2436 x 1125 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "12MP (Wide/Quad Flash) 4K Ultra HD (Advanced)";
+          phoneTable.rows[5].cells[1].innerHTML = "12MP (HDR Wide) 4K Ultra HD";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "Yes";
+          phoneTable.rows[8].cells[1].innerHTML = "No";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "Yes";
+          phoneTable.rows[11].cells[1].innerHTML = "Dual SIM (eSIM + Nano SIM)";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "iPhone 11 Pro Max"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/iPhone11ProMax.jpg";
+          document.getElementById("phoneName").innerHTML = "iPhone 11 Pro Max";
+          document.getElementById("phoneM").innerHTML = "Apple"
+          phoneTable.style.visibility = "visible";
+          phoneTable.rows[0].cells[1].innerHTML = "64 GB/ 256 GB/ 512 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "A13";
+          phoneTable.rows[2].cells[1].innerHTML = "20 hrs";
+          phoneTable.rows[3].cells[1].innerHTML = "6.5\" OLED (2688 x 1242 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "12MP (Wide/Quad Flash) 4K Ultra HD (Advanced)";
+          phoneTable.rows[5].cells[1].innerHTML = "12MP (HDR Wide) 4K Ultra HD";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "Yes";
+          phoneTable.rows[8].cells[1].innerHTML = "No";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "Yes";
+          phoneTable.rows[11].cells[1].innerHTML = "Dual SIM (eSIM + Nano SIM)";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "iPhone XS"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/iPhoneXS.jpg";
+          document.getElementById("phoneName").innerHTML = "iPhone XS";
+          document.getElementById("phoneM").innerHTML = "Apple"
+          phoneTable.style.visibility = "visible";
+          phoneTable.rows[0].cells[1].innerHTML = "64 GB/ 128 GB/ 512 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "A12";
+          phoneTable.rows[2].cells[1].innerHTML = "14 hrs";
+          phoneTable.rows[3].cells[1].innerHTML = "5.8\" OLED (2436 x 1125 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "12MP (Wide/Quad Flash) 4K Ultra HD (Advanced)";
+          phoneTable.rows[5].cells[1].innerHTML = "7MP (HDR) 1080p HD";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "Yes";
+          phoneTable.rows[8].cells[1].innerHTML = "No";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "No";
+          phoneTable.rows[11].cells[1].innerHTML = "Dual SIM (eSIM + Nano SIM)";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "iPhone XS Max"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").width = "300";
+          document.getElementById("phoneName").innerHTML = "iPhone XS Max";
+          document.getElementById("phoneM").innerHTML = "Apple"
+          phoneTable.style.visibility = "visible";
+          phoneTable.rows[0].cells[1].innerHTML = "64 GB/ 128 GB/ 512 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "A12";
+          phoneTable.rows[2].cells[1].innerHTML = "15 hrs";
+          phoneTable.rows[3].cells[1].innerHTML = "6.5\" OLED (2688 x 1242 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "12MP (Wide/Quad Flash) 4K Ultra HD (Advanced)";
+          phoneTable.rows[5].cells[1].innerHTML = "7MP (HDR) 1080p HD";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "Yes";
+          phoneTable.rows[8].cells[1].innerHTML = "No";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "No";
+          phoneTable.rows[11].cells[1].innerHTML = "Dual SIM (eSIM + Nano SIM)";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "iPhone XR"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/iPhoneXR.jpg";
+          document.getElementById("phoneName").innerHTML = "iPhone XR";
+          document.getElementById("phoneM").innerHTML = "Apple"
+          phoneTable.style.visibility = "visible";
+          phoneTable.rows[0].cells[1].innerHTML = "64 GB/ 128 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "A12";
+          phoneTable.rows[2].cells[1].innerHTML = "16 hrs";
+          phoneTable.rows[3].cells[1].innerHTML = "6.1\" LCD (1792 x 828 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "12MP (Wide/Quad Flash) 4K Ultra HD (Advanced)";
+          phoneTable.rows[5].cells[1].innerHTML = "7MP (HDR) 1080p HD";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "Yes";
+          phoneTable.rows[8].cells[1].innerHTML = "No";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "No";
+          phoneTable.rows[11].cells[1].innerHTML = "Dual SIM (eSIM + Nano SIM)";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "Galaxy S9"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/s9.jpg";
+          document.getElementById("phoneName").innerHTML = "Galaxy S9";
+          document.getElementById("phoneM").innerHTML = "Samsung"
+          phoneTable.style.visibility = "visible";
+          phoneTable.rows[0].cells[1].innerHTML = "64 GB/ 128 GB/ 256 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "Snapdragon 845";
+          phoneTable.rows[2].cells[1].innerHTML = "3000 mAh";
+          phoneTable.rows[3].cells[1].innerHTML = "5.8\" AMOLED (2960 x 1440 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "12MP(Wide) 4K Ultra HD (Advanced)";
+          phoneTable.rows[5].cells[1].innerHTML = "8MP (HDR Wide) 1440p";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "Yes";
+          phoneTable.rows[8].cells[1].innerHTML = "No";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "No";
+          phoneTable.rows[11].cells[1].innerHTML = "Nano";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "Galaxy S10"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/s10.jpg";
+          document.getElementById("phoneName").innerHTML = "Galaxy S10";
+          document.getElementById("phoneM").innerHTML = "Samsung"
+          phoneTable.style.visibility = "visible";
+          phoneTable.rows[0].cells[1].innerHTML = "128 GB/ 512 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "Snapdragon 855";
+          phoneTable.rows[2].cells[1].innerHTML = "3400 mAh";
+          phoneTable.rows[3].cells[1].innerHTML = "6.1\" AMOLED (3040 x 1440 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "16MP(Ultra Wide)/12MP(Wide)/12MP(Tele) 4K Ultra HD (Advanced)";
+          phoneTable.rows[5].cells[1].innerHTML = "10MP (HDR Wide) 4K Ultra HD (Advanced)";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "Yes";
+          phoneTable.rows[8].cells[1].innerHTML = "No";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "Yes";
+          phoneTable.rows[11].cells[1].innerHTML = "Nano";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "Galaxy S10+"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/s10Plus.jpg";
+          document.getElementById("phoneName").innerHTML = "Galaxy S10+";
+          document.getElementById("phoneM").innerHTML = "Samsung"
+          phoneTable.style.visibility = "visible";
+          phoneTable.rows[0].cells[1].innerHTML = "128 GB/ 512 GB/ 1 TB";
+          phoneTable.rows[1].cells[1].innerHTML = "Snapdragon 855";
+          phoneTable.rows[2].cells[1].innerHTML = "4100 mAh";
+          phoneTable.rows[3].cells[1].innerHTML = "6.4\" AMOLED (3040 x 1440 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "16MP(Ultra Wide)/12MP(Wide)/12MP(Tele) 4K Ultra HD (Advanced)";
+          phoneTable.rows[5].cells[1].innerHTML = "10MP/8MP (HDR Wide) 4K Ultra HD (Advanced)";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "Yes";
+          phoneTable.rows[8].cells[1].innerHTML = "No";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "Yes";
+          phoneTable.rows[11].cells[1].innerHTML = "Nano";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "Galaxy S10 Lite"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/s10Lite.jpg";
+          document.getElementById("phoneName").innerHTML = "Galaxy S10 Lite";
+          document.getElementById("phoneM").innerHTML = "Samsung"
+          phoneTable.style.visibility = "visible";
+          phoneTable.rows[0].cells[1].innerHTML = "128 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "Snapdragon 855";
+          phoneTable.rows[2].cells[1].innerHTML = "4500 mAh";
+          phoneTable.rows[3].cells[1].innerHTML = "6.7\" AMOLED (2400 x 1080 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "48MP(Wide)/12MP(Ultra Wide)/5MP(Macro)  4K Ultra HD (Advanced)";
+          phoneTable.rows[5].cells[1].innerHTML = "32MP(HDR Wide) 1080p HD";
+          phoneTable.rows[6].cells[1].innerHTML = "No";
+          phoneTable.rows[7].cells[1].innerHTML = "No";
+          phoneTable.rows[8].cells[1].innerHTML = "No";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "No";
+          phoneTable.rows[11].cells[1].innerHTML = "Nano";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "Galaxy S10e"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/s10e.jfif";
+          document.getElementById("phoneName").innerHTML = "Galaxy S10e";
+          document.getElementById("phoneM").innerHTML = "Samsung"
+          phoneTable.style.visibility = "visible";
+          phoneTable.rows[0].cells[1].innerHTML = "128 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "Snapdragon 855";
+          phoneTable.rows[2].cells[1].innerHTML = "4100 mAh";
+          phoneTable.rows[3].cells[1].innerHTML = "6.4\" AMOLED (3040 x 1440 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "16MP(Ultra Wide)/12MP(Wide)/12MP(Tele) 4K Ultra HD (Advanced)";
+          phoneTable.rows[5].cells[1].innerHTML = "10MP/8MP (HDR Wide) 4K Ultra HD (Advanced)";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "Yes";
+          phoneTable.rows[8].cells[1].innerHTML = "No";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "Yes";
+          phoneTable.rows[11].cells[1].innerHTML = "Nano";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "Galaxy S20 5G"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/s20.png";
+          document.getElementById("phoneName").innerHTML = "Galaxy S20 5G";
+          document.getElementById("phoneM").innerHTML = "Samsung"
+          phoneTable.style.visibility = "visible";
+          phoneTable.rows[0].cells[1].innerHTML = "128 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "Snapdragon 865";
+          phoneTable.rows[2].cells[1].innerHTML = "4000 mAh";
+          phoneTable.rows[3].cells[1].innerHTML = "6.2\" AMOLED (3200 x 1440 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "64MP(Tele)/12MP(Wide)/12MP(Ultra Wide) 8K";
+          phoneTable.rows[5].cells[1].innerHTML = "10MP (HDR Wide) 4K Ultra HD (Advanced)";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "Yes";
+          phoneTable.rows[8].cells[1].innerHTML = "No";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "Yes";
+          phoneTable.rows[11].cells[1].innerHTML = "Nano";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "Galaxy S20+ 5G"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/s20Plus.jpeg";
+          document.getElementById("phoneName").innerHTML = "Galaxy S20+ 5G";
+          document.getElementById("phoneM").innerHTML = "Samsung"
+          phoneTable.style.visibility = "visible";
+          phoneTable.rows[0].cells[1].innerHTML = "128 GB/ 512 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "Snapdragon 865";
+          phoneTable.rows[2].cells[1].innerHTML = "4500 mAh";
+          phoneTable.rows[3].cells[1].innerHTML = "6.7\" AMOLED (3200 x 1440 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "64MP(Tele)/12MP(Wide)/12MP(Ultra Wide) 8K";
+          phoneTable.rows[5].cells[1].innerHTML = "10MP (HDR Wide) 4K Ultra HD (Advanced)";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "Yes";
+          phoneTable.rows[8].cells[1].innerHTML = "Yes";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "Yes";
+          phoneTable.rows[11].cells[1].innerHTML = "Nano";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "Galaxy S20 Ultra 5G"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/s20Ultra.jpg";
+          document.getElementById("phoneName").innerHTML = "Galaxy S20 Ultra 5G";
+          document.getElementById("phoneM").innerHTML = "Samsung"
+          phoneTable.style.visibility = "visible";
+          phoneTable.rows[0].cells[1].innerHTML = "128 GB/ 512 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "Snapdragon 865";
+          phoneTable.rows[2].cells[1].innerHTML = "5000 mAh";
+          phoneTable.rows[3].cells[1].innerHTML = "6.9\" AMOLED (3200 x 1440 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "108MP(Wide)/48MP(Tele)/12MP(Utra Wide) 8K";
+          phoneTable.rows[5].cells[1].innerHTML = "40MP (HDR Wide) 4K Ultra HD (Advanced)";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "Yes";
+          phoneTable.rows[8].cells[1].innerHTML = "Yes";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "Yes";
+          phoneTable.rows[11].cells[1].innerHTML = "Nano";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "Galaxy Note9"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/note9.jpg";
+          document.getElementById("phoneName").innerHTML = "Galaxy Note9";
+          document.getElementById("phoneM").innerHTML = "Samsung"
+          phoneTable.style.visibility = "visible";
+          phoneTable.rows[0].cells[1].innerHTML = "128 GB/ 512 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "Snapdragon 845";
+          phoneTable.rows[2].cells[1].innerHTML = "4000 mAh";
+          phoneTable.rows[3].cells[1].innerHTML = "6.4\" AMOLED (2960 x 1440 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "12MP(Wide) 4K Ultra HD (Standard)";
+          phoneTable.rows[5].cells[1].innerHTML = "80MP (HDR Wide) 1440p";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "No";
+          phoneTable.rows[8].cells[1].innerHTML = "No";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "No";
+          phoneTable.rows[11].cells[1].innerHTML = "Nano";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "Galaxy Note10"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/note10.jpg";
+          document.getElementById("phoneName").innerHTML = "Galaxy Note10";
+          document.getElementById("phoneM").innerHTML = "Samsung"
+          phoneTable.style.visibility = "visible";
+          phoneTable.rows[0].cells[1].innerHTML = "256 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "Snapdragon 855";
+          phoneTable.rows[2].cells[1].innerHTML = "3500 mAh";
+          phoneTable.rows[3].cells[1].innerHTML = "6.3\" AMOLED (2280 x 1080 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "16MP(Ultra Wide)/12MP(Wide)/12MP(Tele) 4K Ultra HD (Advanced)";
+          phoneTable.rows[5].cells[1].innerHTML = "10MP (HDR Wide) 4K Ultra HD (Standard)";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "No";
+          phoneTable.rows[8].cells[1].innerHTML = "No";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "Yes";
+          phoneTable.rows[11].cells[1].innerHTML = "Nano";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "Galaxy Note10+"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/note10Plus.jpg";
+          document.getElementById("phoneName").innerHTML = "Galaxy Note10+";
+          document.getElementById("phoneM").innerHTML = "Samsung"
+          phoneTable.style.visibility = "visible";
+          phoneTable.rows[0].cells[1].innerHTML = "256 GB/ 512 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "Snapdragon 855";
+          phoneTable.rows[2].cells[1].innerHTML = "4300 mAh";
+          phoneTable.rows[3].cells[1].innerHTML = "6.8\" AMOLED (3040 x 1440 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "16MP(Ultra Wide)/12MP(Wide)/12MP(Tele)/Dual OIS 4K Ultra HD (Advanced)";
+          phoneTable.rows[5].cells[1].innerHTML = "10MP (HDR Wide) 4K Ultra HD (Standard)";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "No";
+          phoneTable.rows[8].cells[1].innerHTML = "No";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "Yes";
+          phoneTable.rows[11].cells[1].innerHTML = "Nano";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "Galaxy Note10+ 5G"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/note10P5G.jpg";
+          document.getElementById("phoneName").innerHTML = "Galaxy Note10+ 5G";
+          document.getElementById("phoneM").innerHTML = "Samsung"
+          phoneTable.style.visibility = "visible";
+          phoneTable.rows[0].cells[1].innerHTML = "256 GB/ 512 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "Snapdragon 855";
+          phoneTable.rows[2].cells[1].innerHTML = "4300 mAh";
+          phoneTable.rows[3].cells[1].innerHTML = "6.8\" AMOLED (3040 x 1440 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "16MP(Ultra Wide)/12MP(Wide)/12MP(Tele)/Dual OIS 4K Ultra HD (Advanced)";
+          phoneTable.rows[5].cells[1].innerHTML = "10MP (HDR Wide) 4K Ultra HD (Standard)";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "Yes";
+          phoneTable.rows[8].cells[1].innerHTML = "No";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "Yes";
+          phoneTable.rows[11].cells[1].innerHTML = "Nano";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "Galaxy Note20 5G"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/note20.jpg";
+          document.getElementById("phoneName").innerHTML = "Galaxy Note20 5G";
+          document.getElementById("phoneM").innerHTML = "Samsung"
+          phoneTable.style.visibility = "visible";
+          phoneTable.rows[0].cells[1].innerHTML = "128 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "Snapdragon 865+";
+          phoneTable.rows[2].cells[1].innerHTML = "4300 mAh";
+          phoneTable.rows[3].cells[1].innerHTML = "6.7\" AMOLED (2400 x 1080 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "64MP(Tele)/12MP(Ultra Wide)/12MP(Wide) 8K";
+          phoneTable.rows[5].cells[1].innerHTML = "10MP (HDR Wide) 8K";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "Yes";
+          phoneTable.rows[8].cells[1].innerHTML = "Yes";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "Yes";
+          phoneTable.rows[11].cells[1].innerHTML = "Nano";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+        else if ($(this).find(".node-name").text() == "Galaxy Note20 Ultra 5G"){
+          document.getElementById("phonePic").style.display = "block";
+          document.getElementById("instructions").style.display = "none";
+          tree.style.display = "none";
+          document.getElementById("phonePic").src="./phonePhotos/note20Ultra.jpg";
+          document.getElementById("phoneName").innerHTML = "Galaxy Note20 Ultra 5G";
+          document.getElementById("phoneM").innerHTML = "Samsung"
+          phoneTable.style.display = "block";
+          phoneTable.rows[0].cells[1].innerHTML = "128 GB/ 256 GB";
+          phoneTable.rows[1].cells[1].innerHTML = "Snapdragon 865+";
+          phoneTable.rows[2].cells[1].innerHTML = "4500 mAh";
+          phoneTable.rows[3].cells[1].innerHTML = "6.9\" AMOLED (3088 x 1440 pixels)";
+          phoneTable.rows[4].cells[1].innerHTML = "108MP(Wide)/12MP(Ultra Wide)/12MP(Tele) 8K";
+          phoneTable.rows[5].cells[1].innerHTML = "10MP (HDR Wide) 4K Ultra HD (Advanced)";
+          phoneTable.rows[6].cells[1].innerHTML = "Yes";
+          phoneTable.rows[7].cells[1].innerHTML = "Yes";
+          phoneTable.rows[8].cells[1].innerHTML = "Yes";
+          phoneTable.rows[9].cells[1].innerHTML = "Yes";
+          phoneTable.rows[10].cells[1].innerHTML = "Yes";
+          phoneTable.rows[11].cells[1].innerHTML = "Nano";
+          phoneTable.rows[12].cells[1].innerHTML = "5 way";
+          phoneTable.rows[13].cells[1].innerHTML = "Ready";
+        }
+
+    });
+  </script>
+
+  <script>
+    function reset(){
+      tree.style.display = "block";
+      my_chart.destroy();
+      my_chart = new Treant(simple_chart_config);
+      document.getElementById("instructions").style.display = "block";
+      document.getElementById("phoneFeatures").style.display = "none";
+      document.getElementById("phonePic").style.display = "none";
+      document.getElementById("phoneName").style.display = "none";
+      document.getElementById("phoneM").style.display = "none";
+    }
+  </script>
+
+
+</body>
+</html>

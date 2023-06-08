@@ -1,0 +1,155 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPageNationalWirelessCampaign.master.cs" Inherits="MasterPageNationalWirelessCampaign" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<!-- begin::Head -->
+<head runat="server">
+    <meta charset="utf-8" />
+    <title><%: Page.Title %> - Ponder | Dashboard </title>
+    <meta name="description" content="Latest updates and statistic charts">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+    <script>
+        WebFont.load({
+            google: { "families": ["Poppins:300,400,500,600,700", "Roboto:300,400,500,600,700"] },
+            active: function () {
+                sessionStorage.fonts = true;
+            }
+        });
+    </script>    
+    
+    <script type="text/javascript" src="<%= Page.ResolveClientUrl ("~/assets_v7_0_0/plugins/global/plugins.bundle.js") %>"></script>
+    <script type="text/javascript" src="<%= Page.ResolveClientUrl ("~/assets_v7_0_0/plugins/custom/prismjs/prismjs.bundle.js") %>"></script>
+    <script type="text/javascript" src="<%= Page.ResolveClientUrl ("~/assets_v7_0_0/js/scripts.bundle.js") %>"></script>
+    <script src="<%= Page.ResolveClientUrl ("~/Scripts/jquery-3.3.1.min.js") %>"></script>
+    <link href="assets_v7_0_0/plugins/global/plugins.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="assets_v7_0_0/plugins/custom/prismjs/prismjs.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="assets_v7_0_0/css/style.bundle.css" rel="stylesheet" type="text/css" />
+    <link href="favicon.ico" rel="shortcut icon" type="image/x-icon" />
+</head>
+<!-- end::Head -->
+<!-- begin::Body -->
+<body id="kt_body" class="header-fixed header-mobile-fixed subheader-enabled subheader-fixed page-loading">
+
+    <form id="form1" runat="server">
+
+        <div id="kt_header_mobile" class="header-mobile align-items-center header-mobile-fixed">
+			<!--begin::Logo-->
+			<a href="index.html">
+				<img alt="Logo" src="../assets/demo/default/media/img/logo/ponder_logo.jpg" />
+			</a>
+			<!--end::Logo-->
+			<!--begin::Toolbar-->
+			<div class="d-flex align-items-center">
+				<!--begin::Header Menu Mobile Toggle-->
+				<button class="btn p-0 burger-icon ml-4" id="kt_header_mobile_toggle">
+					<span></span>
+				</button>
+				<!--end::Header Menu Mobile Toggle-->
+				<!--begin::Topbar Mobile Toggle-->
+				<button class="btn btn-hover-text-primary p-0 ml-2" id="kt_header_mobile_topbar_toggle">
+					<span class="svg-icon svg-icon-xl">
+						<!--begin::Svg Icon | path:assets_v7_0_0/media/svg/icons/General/User.svg-->
+						<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+							<g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+								<polygon points="0 0 24 0 24 24 0 24" />
+								<path d="M12,11 C9.790861,11 8,9.209139 8,7 C8,4.790861 9.790861,3 12,3 C14.209139,3 16,4.790861 16,7 C16,9.209139 14.209139,11 12,11 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+								<path d="M3.00065168,20.1992055 C3.38825852,15.4265159 7.26191235,13 11.9833413,13 C16.7712164,13 20.7048837,15.2931929 20.9979143,20.2 C21.0095879,20.3954741 20.9979143,21 20.2466999,21 C16.541124,21 11.0347247,21 3.72750223,21 C3.47671215,21 2.97953825,20.45918 3.00065168,20.1992055 Z" fill="#000000" fill-rule="nonzero" />
+							</g>
+						</svg>
+						<!--end::Svg Icon-->
+					</span>
+				</button>
+				<!--end::Topbar Mobile Toggle-->
+			</div>
+			<!--end::Toolbar-->
+		</div>
+
+        <!--end::Header Mobile-->
+		<div class="d-flex flex-column flex-root">
+			<!--begin::Page-->
+			<div class="d-flex flex-row flex-column-fluid page">
+				<!--begin::Wrapper-->
+				<div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+					<!--begin::Header-->
+					<div id="kt_header" class="header header-fixed">
+						<!--begin::Container-->
+						<div class="container-fluid d-flex align-items-stretch justify-content-between">
+							<!--begin::Header Menu Wrapper-->
+							<div class="header-menu-wrapper header-menu-wrapper-left" id="kt_header_menu_wrapper">
+								<!--begin::Header Logo-->
+								<div class="header-logo">
+									<a href="index.html">
+										<img alt="Logo" src="../assets/demo/default/media/img/logo/ponder_logo.jpg" />
+									</a>
+								</div>
+                            </div>
+
+                            <div class="topbar">
+								<h3>National Wireless Campaign - Wireless Scoring</h3>
+							</div>
+
+						</div>
+					</div>
+
+					<div class="m-grid__item m-grid__item--fluid m-grid m-grid--ver-desktop m-grid--desktop m-body">
+						<!-- BEGIN: Left Aside -->
+						<%--<button class="m-aside-left-close  m-aside-left-close--skin-light " id="m_aside_left_close_btn">
+							<i class="la la-close"></i>
+						</button>--%>
+               
+
+						<div class="m-grid__item m-grid__item--fluid m-wrapper">
+
+							<div class="m-content">
+								<asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+								</asp:ContentPlaceHolder>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+
+        <!-- end:: Page -->
+        <!-- begin::Quick Sidebar -->
+        <!-- end::Quick Sidebar -->
+        <!-- begin::Scroll Top -->
+        <div class="m-scroll-top m-scroll-top--skin-top" data-toggle="m-scroll-top" data-scroll-offset="500" data-scroll-speed="300">
+            <i class="la la-arrow-up"></i>
+        </div>
+        <!-- end::Scroll Top -->
+        <!-- begin::Quick Nav -->
+        <!-- end::Quick Nav -->
+
+
+        <!--begin::Base Scripts -->
+        <!-- <script src="assets_v7_0_0/vendors/base/vendors.bundle.js" type="text/javascript"></script> -->
+        <script src="/assets_v7_0_0/plugins/global/plugins.bundle.js" type="text/javascript"></script>
+        <script src="/assets_v7_0_0/plugins/custom/prismjs/prismjs.bundle.js" type="text/javascript"></script>
+        <script src="/assets_v7_0_0/js/scripts.bundle.js" type="text/javascript"></script>
+        <!--end::Base Scripts -->
+        <!--begin::Page Vendors -->
+		<%--<link href="../assets_v7_0_0/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" />--%>
+		<%--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css" />
+		<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/select/1.3.1/css/select.dataTables.min.css" />--%>
+		<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.js"></script>
+		<script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
+
+		<script type="text/javascript" src="https://cdn.datatables.net/v/dt/jszip-2.5.0/dt-1.10.18/b-1.5.6/b-flash-1.5.6/b-html5-1.5.6/fh-3.1.4/sl-1.3.0/datatables.min.js"></script>
+		<script type="text/javascript" src="http://cdn.datatables.net/plug-ins/1.10.19/sorting/datetime-moment.js"></script>
+        <%--<script src="/assets_v7_0_0/plugins/custom/datatables/datatables.bundle.js" type="text/javascript"></script>--%>
+        <!--end::Page Vendors -->
+        <!--begin::Page Snippets -->
+        <%--<script src="/assets_v7_0_0/app/js/dashboard.js" type="text/javascript"></script>--%>
+        <!--end::Page Snippets -->
+    </form>
+</body>
+<!-- end::Body -->
+</html>
+

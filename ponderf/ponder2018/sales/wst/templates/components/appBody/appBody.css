@@ -1,0 +1,122 @@
+.ponder-app-body {
+    position: relative;
+    height: var(--body-height);
+    display: block;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.map-section {
+    position: relative;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    z-index: 1;
+}
+
+    .map-section.panel-open {
+        margin-right: 40%;
+    }
+
+.panel-section {
+    margin: 0;
+    padding: 1rem;
+    width: 40%;
+    vertical-align: top;
+    overflow-y: auto;
+    overflow-x: hidden;
+    position: absolute;
+    right: -40%;
+    top: 0;
+    bottom: 0;
+}
+
+    .panel-section.panel-open {
+        right: 0%;
+    }
+
+
+/* Smaller viewport */
+@media (max-width: 1200px) {
+    .map-section {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+        .map-section.panel-open {
+            height: 60%;
+        }
+
+    .panel-section {
+        width: 100%;
+        height: 40%;
+        left: 0;
+        right: 0;
+        top: auto;
+        bottom: -40%;
+    }
+
+        .panel-section.panel-open {
+            bottom: 0%;
+        }
+}
+
+
+
+
+/*  MAP SECTION STYLES */
+
+.map-controls {
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+}
+
+.map-controls-buttons {
+    margin-top: .5rem;
+}
+
+    .map-controls-buttons .ui.buttons {
+        margin-right: .25rem;
+        /* use a filter for dropshadow so that it accounts for the border raduis clipping */
+        filter: drop-shadow(0 2px 4px var(--att-gray-03)) !important;
+    }
+
+    .map-controls-buttons button {
+        background-color: var(--att-gray-01) !important;
+    }
+
+        .map-controls-buttons button:hover, .map-controls-buttons button:active {
+            background-color: var(--att-gray-02) !important;
+        }
+
+    .map-controls-buttons > button {
+        box-shadow: 0 1px 5px var(--att-gray-03) !important;
+    }
+
+.heatmap-card-info {
+    position: absolute;
+    left: 1rem;
+    bottom: 1rem;
+    z-index: 2;
+}
+
+.dev-tools {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    z-index: 2;
+}
+
+.overlay-menu {
+    position: absolute;
+    left: 1rem;
+    top: 1rem;
+    z-index: 2;
+}

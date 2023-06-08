@@ -1,0 +1,48 @@
+﻿.ponder-pushed-container .points-selection-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.ponder-pushed-container .points-selection-container .points-selection-list {
+    margin-bottom: 1rem;
+}
+
+.ponder-pushed-container .points-selection-container .points-selection-list > div {
+    margin-bottom: .5rem;
+}
+
+.points-selection-container .item .title {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.points-selection-container .item .title h5 {
+    margin: 0;
+}
+
+.points-selection-container .content {
+    padding-top: 1rem !important;
+}
+
+.points-selection-container label {
+    padding-left: .25rem;
+}
+
+.points-selection-list {
+    margin-bottom: .75rem;
+}
+
+/*  icon colors  */
+.attr-storepoint-layer-id svg path {
+    fill: blue;
+}
+
+.selection-inputs {
+    display: flex;
+    white-space: nowrap;
+    margin-bottom: .5rem;
+}
+.selection-inputs input {
+    margin-right: .25rem;
+}

@@ -1,0 +1,74 @@
+﻿nav .nav-items {
+    /*background-color: var(--att-cobalt-00);*/
+    background-color: var(--att-tangerine-00);
+    color: white;
+    font-size: 20px;
+    display: flex;
+    /*justify-content: space-between;*/
+    padding: 1rem;
+}
+
+.nav-items a {
+    color: white;
+    margin-right: 1.5rem;
+}
+
+    .nav-items a:active, .nav-items a:hover {
+        text-decoration: underline;
+    }
+
+.nav-items .left-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-logo {
+    display: flex;
+    margin-right: 2.5rem;
+    align-items: center;
+}
+
+    .nav-logo img {
+        margin-right: 1rem;
+    }
+
+
+.nav-sub-header form.form .inline.fields {
+    margin-bottom: 0;
+    justify-content: center;
+}
+
+.nav-sub-header .form .inline.fields .field {
+    display: flex;
+    align-items: center;
+}
+
+    .nav-sub-header .form .inline.fields .field:not(:last-child) {
+        margin-right: 2rem;
+    }
+
+    .nav-sub-header .form .inline.fields .field label {
+        white-space: nowrap;
+    }
+
+.nav-sub-header {
+    display: flex;
+    padding: 0 1rem;
+    border-bottom: solid 1px var(--att-gray-01);
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+    .nav-sub-header form {
+        margin-right: 1rem;
+        padding: .5rem 0;
+    }
+
+.ponder-search-container {
+    display: flex;
+    padding: .5rem 0;
+}
+
+ponder-search {
+    min-width: 250px;
+}

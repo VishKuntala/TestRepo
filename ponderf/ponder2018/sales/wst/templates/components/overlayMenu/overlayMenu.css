@@ -1,0 +1,70 @@
+.ponder-overlay-menu {
+    display: flex;
+    flex-direction: column;
+}
+
+#pointLegend {
+    background-color: #FFFFFF;
+    color: #000000;
+    padding-left:5px;
+    padding-right:5px;
+}
+
+.legend-container .minus {
+    padding-left: 20px !important;
+}
+
+.legend-container .plus {
+    padding-left: 20px !important;
+}
+
+.ponder-pushed-container .legend-container {
+    display: flex;
+    flex-direction: column;
+}
+
+    .ponder-pushed-container .legend-container .points-selection-list {
+        margin-bottom: 1rem;
+    }
+
+        .ponder-pushed-container .legend-container .points-selection-list > div {
+            margin-bottom: .5rem;
+        }
+
+.legend-container .item .title {
+    display: flex !important;
+    justify-content: space-between;
+    align-items: center;
+}
+
+    .legend-container .item .title h5 {
+        margin: 0;
+    }
+
+.legend-container .content {
+    padding-top: 1rem !important;
+}
+
+.legend-container label {
+    padding-left: .25rem;
+}
+
+.points-selection-list {
+    margin-bottom: .75rem;
+}
+
+/*  icon colors  */
+.attr-storepoint-layer-id svg path {
+    fill: blue;
+}
+
+.selection-inputs {
+    display: flex;
+    white-space: nowrap;
+    margin-bottom: .5rem;
+}
+
+    .selection-inputs input {
+        margin-right: .25rem;
+    }
+
